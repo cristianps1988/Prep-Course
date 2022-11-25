@@ -30,8 +30,7 @@ function invocarMetodo (objeto, metodo) {
   // Invoca ese método
   // Nada necesita ser devuelto ("returned")
   // Tu código:
-  objeto[metodo];
-  
+  objeto['metodo']
 }
 
 function multiplicarNumeroDesconocidoPorCinco (objetoMisterioso) {
@@ -103,6 +102,8 @@ function agregarAmigo (usuario, nuevoAmigo) {
   // Agrega "nuevoAmigo" al final de ese array
   // Devuelve el objeto "usuario"
   // Tu código:
+  usuario.amigos.push(nuevoAmigo)
+  return usuario
 
 }
 
@@ -112,8 +113,15 @@ function pasarUsuarioAPremium (usuarios) {
   // Define cada propiedad "esPremium" de cada objeto como "true"
   // Devuelve el array de usuarios
   // Tu código:
-
+  for(item of usuarios){
+    item.esPremium = true
+  }
+  return usuarios
 }
+
+// usuario = {
+//   posts: {post = {likes: 1}, post={likes: 10}, post={likes:3}}
+// }
 
 function sumarLikesDeUsuario (usuario) {
   // "usuario" tiene una propiedad llamada "posts" que es un array
@@ -121,7 +129,8 @@ function sumarLikesDeUsuario (usuario) {
   // Cada objeto "post" tiene una propiedad llamada "likes" que es un entero (int/integer)
   // Suma todos los likes de todos los objetos "post"
   // Devuelve la suma
-  // Tu código:
+  // Tu código: 
+  usuario.posts
 }
 
 function agregarMetodoCalculoDescuento (producto) {
@@ -135,6 +144,10 @@ function agregarMetodoCalculoDescuento (producto) {
   // producto.calcularPrecioDescuento() -> 20 - (20 * 0.2)
   // Tu código:
   
+  producto.calcularPrecioDescuento = function(){
+    return producto.precio - (producto.precio * producto.porcentajeDeDescuento)
+  }
+  return producto
 }
 
 // No modificar nada debajo de esta línea
