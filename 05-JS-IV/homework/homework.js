@@ -30,7 +30,7 @@ function invocarMetodo (objeto, metodo) {
   // Invoca ese método
   // Nada necesita ser devuelto ("returned")
   // Tu código:
-  objeto['metodo']
+  objeto[metodo]()
 }
 
 function multiplicarNumeroDesconocidoPorCinco (objetoMisterioso) {
@@ -65,7 +65,7 @@ function tieneEmail (usuario) {
   // Devuelve "true" si el usuario tiene un valor definido para la propiedad "email"
   // De lo contratio, devuelve "false"
   // Tu código:
-  
+  return usuario.email ? true: false;
   
 }
 
@@ -74,11 +74,7 @@ function tienePropiedad (objeto, propiedad) {
   // "propiedad" es un string
   // De lo contrario, devuelve "false"
   // Tu código:
-  for(let i in objeto){
-    if(i == propiedad){
-      return true
-    }
-  }return false
+  return objeto[propiedad] ? true: false;
 }
 
 function verificarPassword (usuario, password) {
@@ -130,7 +126,11 @@ function sumarLikesDeUsuario (usuario) {
   // Suma todos los likes de todos los objetos "post"
   // Devuelve la suma
   // Tu código: 
-  usuario.posts
+  let suma = 0
+  for(item of usuario.posts){
+    suma = suma + item.likes
+  }
+  return suma
 }
 
 function agregarMetodoCalculoDescuento (producto) {
@@ -145,7 +145,7 @@ function agregarMetodoCalculoDescuento (producto) {
   // Tu código:
   
   producto.calcularPrecioDescuento = function(){
-    return producto.precio - (producto.precio * producto.porcentajeDeDescuento)
+    return this.precio - (this.precio * this.porcentajeDeDescuento)
   }
   return producto
 }
